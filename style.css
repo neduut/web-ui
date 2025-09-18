@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 /* Bendras puslapio stilius */
 body {
   font-family: Arial, sans-serif;
