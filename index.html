@@ -6,9 +6,9 @@
   <title>Receptai</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home">
 
-  <!-- Meniu -->
+  <!-- menu -->
   <nav>
     <ul>
       <li><a href="#pagrindinis">Pagrindinis</a></li>
@@ -16,66 +16,114 @@
     </ul>
   </nav>
 
-  <!-- Pagrindinė antraštė -->
-  <h1 id="pagrindinis">Mėgstamiausi receptauskiaii</h1>
+  <!-- pgr antraštė -->
+  <h1 id="pagrindinis">Mėgstamiausii receptuukai</h1>
 
-  <!-- Kortelių konteineris -->
+  <!-- receptu meniu -->
+  <div class="category-menu">
+    <button class="category active" data-category="desertai">Desertai</button>
+    <button class="category" data-category="pagrindiniai">Pagrindiniai patiekalai</button>
+    <button class="category" data-category="uzkandziai">Užkandžiai</button>
+  </div>
+
+  <!-- korteliu konteineris -->
   <div class="cards-container">
-    <a href="smygolo.html" class="card">
+    <!-- desertai -->
+    <a href="smygolo.html" class="card" data-category="desertai">
       <img src="images/smygolo.jpg" alt="Smygolo sausainiai">
       <h3>Smygolo sausainiai</h3>
     </a>
-    <a href="obuolukeksiukai.html" class="card">
+    <a href="obuolukeksiukai.html" class="card" data-category="desertai">
       <img src="images/obuolukeksiukai.jpg" alt="Obuolių keksiukai">
       <h3>Obuolių keksiukai</h3>
     </a>
-    <a href="maskarpones.html" class="card">
+    <a href="maskarpones.html" class="card" data-category="desertai">
       <img src="images/maskarpones.jpg" alt="Maskarponės keksiukai">
       <h3>Maskarponės keksiukai</h3>
     </a>
-    <a href="braunis.html" class="card">
+    <a href="braunis.html" class="card" data-category="desertai">
       <img src="images/braunis.jpg" alt="Braunis">
       <h3>Braunis</h3>
     </a>
-    <a href="karleksmums.html" class="card">
+    <a href="karleksmums.html" class="card" data-category="desertai">
       <img src="images/karleksmums.jpg" alt="Kärleksmums">
       <h3>Kärleksmums</h3>
     </a>
-    <a href="obuoliupyragas.html" class="card">
+    <a href="obuoliupyragas.html" class="card" data-category="desertai">
       <img src="images/obuoliupyragas.jpg" alt="Obuolių pyragas">
       <h3>Obuolių pyragas</h3>
     </a>
-    <a href="tiramisu.html" class="card">
+    <a href="tiramisu.html" class="card" data-category="desertai">
       <img src="images/tiramisu.jpg" alt="Tiramisu">
       <h3>Tiramisu</h3>
     </a>
-    <a href="vasaros.html" class="card">
+    <a href="vasaros.html" class="card" data-category="desertai">
       <img src="images/vasaros.jpg" alt="Vasaros tortas">
       <h3>Vasaros tortas</h3>
     </a>
-    <a href="melyniu.html" class="card">
+    <a href="melyniu.html" class="card" data-category="desertai">
       <img src="images/melyniu.jpg" alt="Mėlynių cheescake">
       <h3>Mėlynių cheescake</h3>
     </a>
-    <a href="silauogiu.html" class="card">
+    <a href="silauogiu.html" class="card" data-category="desertai">
       <img src="images/silauogiu.jpg" alt="Silauogiu tortas">
-      <h3>Šilauogiu tortas</h3>
+      <h3>Šilauogių tortas</h3>
     </a>
-    <a href="oreo.html" class="card">
+    <a href="oreo.html" class="card" data-category="desertai">
       <img src="images/oreo.jpg" alt="Oreo tortas">
       <h3>Oreo tortas</h3>
     </a>
-    <a href="ferrero.html" class="card">
+    <a href="ferrero.html" class="card" data-category="desertai">
       <img src="images/ferrero.jpg" alt="Ferrero Rocher tortas">
       <h3>Ferrero Rocher tortas</h3>
     </a>
+    <!-- pgr patiekalai -->
+    <a class="card" data-category="pagrindiniai">
+      <h3>laikinai tuščia</h3>
+    </a>
+    <!-- uzkandziai -->
+    <a class="card" data-category="uzkandziai">
+      <h3>laikinai tuščia</h3>
+    </a>
   </div>
 
-  <!-- Apie puslapį -->
-  <section id="apie" style="margin-top:50px;">
+  <!-- apie puslapi -->
+  <section id="apie">
     <h2>Apie šį puslapį</h2>
     <p>Čia galite rasti įvairius (desertų) receptus. Puslapis skirtas mokymosi tikslams.</p>
   </section>
+
+<!-- javascript filtravimas is menu -->
+  <script>
+    const buttons = document.querySelectorAll('.category-menu .category');
+    const cards = document.querySelectorAll('.cards-container .card');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        // nuima active nuo kitu mygtuku
+        buttons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const category = button.getAttribute('data-category');
+
+        // rodo tik pasirinkta kategorija
+        cards.forEach(card => {
+          if(card.getAttribute('data-category') === category) {
+            card.style.display = 'inline-block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // desertai kaip default
+    cards.forEach(card => {
+      if(card.getAttribute('data-category') !== 'desertai') {
+        card.style.display = 'none';
+      }
+    });
+  </script>
 
 </body>
 </html>

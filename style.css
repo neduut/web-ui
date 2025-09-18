@@ -3,14 +3,30 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   background-color: #fdf6e3;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 100% lango aukščio */
   margin: 0;
+}
+
+/* Main turinys receptų puslapyje */
+body.receptas main {
+  flex: 1;
   padding: 20px;
+  text-align: left; /* recepto tekstas kairėje */
 }
 
 /* Antraštės stilius */
-h1 {
-  margin-bottom: 40px;
+h1#pagrindinis {
+  margin-top: 20px;
+  margin-bottom: 20px;
   color: #333;
+}
+
+body.receptas main h1 {
+  text-align: center; /* recepto pavadinimas centrinis */
+  color: #333;
+  
 }
 
 /* Navigacijos meniu */
@@ -32,41 +48,94 @@ nav a {
   font-weight: bold;
 }
 
-/* Kortelių konteineris */
+/* Dinaminis kategorijų meniu */
+.category-menu {
+  margin-bottom: 30px;
+}
+
+.category-menu .category {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fffdfadb;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.category-menu .category:hover {
+  background-color: #f2f1f1;
+}
+
+.category-menu .category.active {
+  background-color: #e2ccab;
+  font-weight: bold;
+}
+
+/* Kortelių konteineris su Grid */
 .cards-container {
-  display: grid; /* grid layout */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* automatiniai stulpeliai */
-  gap: 20px; /* tarpai tarp kortelių */
-  justify-items: center; /* korteles centre */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
 }
 
 /* Atskiros kortelės stilius */
 .card {
   display: inline-block;
   width: 200px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
   color: black;
   background-color: #fff;
   transition: transform 0.2s;
+  border-radius: 8px;
 }
 
 .card:hover {
-  transform: scale(1.05); /* padidėjimas hover metu */
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.card img {
-  width: 100%;
+/* Nuotraukų dydžiai */
+
+/* foto pagrindiniame puslapyje */
+body.home .card img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover; /* prisitaiko ir nukerpama */
+}
+
+/* foto recepto puslapyje (mažesnė, kairėje) */
+body.receptas .recepto-tekstas img {
+  width: 500px;      
   height: auto;
+  max-width: 100%;  
+  float: left;        /* nuotrauka kairėje */
+  margin-left: 10px;
+  margin-right: 15px;
+  margin-bottom: 10px;
 }
 
+/* Kortelių antraštės */
 .card h3 {
   margin: 10px 0;
 }
 
-/* Apie skyrius (optional) */
-section#apie {
-  margin-top: 50px;
+/* Apie skyrių stilius */
+section#apie, footer#apie {
+  padding: 1px;
+  text-align: center;
+  margin-top: auto; /* footer visada apačioje */
+}
+
+/* Recepto blokas (tekstą šalia nuotraukos) */
+.recepto-tekstas {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px; /* tarpas tarp nuotraukos ir teksto */
+}
+
+.recepto-tekstas div {
+  text-align: left;
 }
