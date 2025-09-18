@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mano receptai</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <!-- Meniu -->
   <nav>
     <ul>
@@ -14,29 +16,54 @@
     </ul>
   </nav>
 
-  <!-- Pagrindinis turinys -->
-  <section id="pagrindinis">
-    <h1>Mano receptai</h1>
-    <section>
-      <h2>Desertai</h2>
-      <ul>
-        <li>Smygolo sausainiai</li>
-        <li>Maskarponės keksiukai</li>
-        <li>Obuolių keksiukai</li>
-        <li>Braunis</li>
-        <li>Kärleksmums</li>
-        <li>Mėlynių cheescake</li>
-        <li>Tiramisu</li>
-        <li>Oreo tortas</li>
-        <li>Ferrero Rocher tortas</li>
-      </ul>
-    </section>
-  </section>
+  <!-- Pagrindinė antraštė -->
+  <h1 id="pagrindinis">Mano receptai</h1>
+
+  <!-- Kortelių konteineris -->
+  <div class="cards-container">
+    <a href="smygolo.html" class="card">
+      <img src="smygolo.jpg" alt="Smygolo sausainiai">
+      <h3>Smygolo sausainiai</h3>
+    </a>
+    <a href="obuolu.html" class="card">
+      <img src="obuolu.jpg" alt="Obuolių keksiukai">
+      <h3>Obuolių keksiukai</h3>
+    </a>
+    <a href="maskarpones.html" class="card">
+      <img src="maskarpones.jpg" alt="Maskarponės keksiukai">
+      <h3>Maskarponės keksiukai</h3>
+    </a>
+    <a href="braunis.html" class="card">
+      <img src="braunis.jpg" alt="Braunis">
+      <h3>Braunis</h3>
+    </a>
+    <a href="karleksmums.html" class="card">
+      <img src="karleksmums.jpg" alt="Kärleksmums">
+      <h3>Kärleksmums</h3>
+    </a>
+    <a href="tiramisu.html" class="card">
+      <img src="tiramisu.jpg" alt="Tiramisu">
+      <h3>Tiramisu</h3>
+    </a>
+    <a href="melyniu.html" class="card">
+      <img src="melyniu.jpg" alt="Mėlynių cheescake">
+      <h3>Mėlynių cheescake</h3>
+    </a>
+    <a href="oreo.html" class="card">
+      <img src="oreo.jpg" alt="Oreo tortas">
+      <h3>Oreo tortas</h3>
+    </a>
+    <a href="ferrero.html" class="card">
+      <img src="ferrero.jpg" alt="Ferrero Rocher tortas">
+      <h3>Ferrero Rocher tortas</h3>
+    </a>
+  </div>
 
   <!-- Apie puslapį -->
-  <section id="apie">
+  <section id="apie" style="margin-top:50px;">
     <h2>Apie šį puslapį</h2>
-    <p>Čia rasite mano receptus. lalalaaaaa</p>
+    <p>Čia galite rasti įvairius (desertų) receptus. Puslapis skirtas mokymosi tikslams.</p>
   </section>
+
 </body>
 </html>
