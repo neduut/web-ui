@@ -1,3 +1,4 @@
+/* Bendras puslapio stilius */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -6,11 +7,13 @@ body {
   padding: 20px;
 }
 
+/* Antraštės stilius */
 h1 {
   margin-bottom: 40px;
   color: #333;
 }
 
+/* Navigacijos meniu */
 nav {
   margin-bottom: 30px;
 }
@@ -29,13 +32,15 @@ nav a {
   font-weight: bold;
 }
 
+/* Kortelių konteineris */
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid; /* grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* automatiniai stulpeliai */
+  gap: 20px; /* tarpai tarp kortelių */
+  justify-items: center; /* korteles centre */
 }
 
+/* Atskiros kortelės stilius */
 .card {
   display: inline-block;
   width: 200px;
@@ -49,7 +54,7 @@ nav a {
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* padidėjimas hover metu */
 }
 
 .card img {
@@ -59,4 +64,9 @@ nav a {
 
 .card h3 {
   margin: 10px 0;
+}
+
+/* Apie skyrius (optional) */
+section#apie {
+  margin-top: 50px;
 }
