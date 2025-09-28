@@ -1,0 +1,28 @@
+/* ===================== Tik receptų puslapiui ===================== */
+body.receptas main {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+body.receptas main h1 {
+  text-align: center;
+  color: #333;
+}
+body.receptas .foto-ingredientu-blokas img {
+  width: 500px;
+  height: auto;
+  max-width: 100%;
+  float: left;
+  margin-left: 10px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+.foto-ingredientu-blokas {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+.recepto-tekstas div {
+  text-align: left;
+  margin-left: 4%;
+}

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Receptai</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="receptas.css"/>
 </head>
 <body class="home">
 
@@ -12,118 +13,104 @@
   <nav>
     <ul>
       <li><a href="#pagrindinis">Pagrindinis</a></li>
-      <li><a href="#apie">Apie</a></li>
+      <li><a href="#istorija">Istorija</a></li>
+      <li><a href="#kontaktai">Kontaktai</a></li>
     </ul>
   </nav>
 
-  <!-- pgr antraštė -->
-  <h1 id="pagrindinis">Mėgstamiausii receptuukai</h1>
+  <header class="page-header">
+    <h1 id="pagrindinis">MANO RECEPTAI</h1>
+    <div class="subtitle">DESERTAI</div>
+  </header>
 
-  <!-- receptu meniu -->
-  <div class="category-menu">
-    <button class="category active" data-category="desertai">Desertai</button>
-    <button class="category" data-category="pagrindiniai">Pagrindiniai patiekalai</button>
-    <button class="category" data-category="uzkandziai">Užkandžiai</button>
-  </div>
 
-  <!-- korteliu konteineris -->
+  <!-- kortelių konteineris -->
   <div class="cards-container">
-    <!-- desertai -->
     <a href="receptu_html/smygolo.html" class="card" data-category="desertai">
-      <img src="images/smygolo.jpg" alt="Smygolo sausainiai">
+      <img src="img/smygolo.jpg" alt="Smygolo sausainiai"/>
       <h3>Smygolo sausainiai</h3>
     </a>
     <a href="receptu_html/obuolukeksiukai.html" class="card" data-category="desertai">
-      <img src="images/obuolukeksiukai.jpg" alt="Obuolių keksiukai">
+      <img src="img/obuolukeksiukai.jpg" alt="Obuolių keksiukai"/>
       <h3>Obuolių keksiukai</h3>
     </a>
     <a href="receptu_html/maskarpones.html" class="card" data-category="desertai">
-      <img src="images/maskarpones.jpg" alt="Maskarponės keksiukai">
+      <img src="img/maskarpones.jpg" alt="Maskarponės keksiukai"/>
       <h3>Maskarponės keksiukai</h3>
     </a>
     <a href="receptu_html/braunis.html" class="card" data-category="desertai">
-      <img src="images/braunis.jpg" alt="Braunis">
+      <img src="img/braunis.jpg" alt="Braunis"/>
       <h3>Braunis</h3>
     </a>
     <a href="receptu_html/karleksmums.html" class="card" data-category="desertai">
-      <img src="images/karleksmums.jpg" alt="Kärleksmums">
+      <img src="img/karleksmums.jpg" alt="Kärleksmums"/>
       <h3>Kärleksmums</h3>
     </a>
     <a href="receptu_html/obuoliupyragas.html" class="card" data-category="desertai">
-      <img src="images/obuoliupyragas.jpg" alt="Obuolių pyragas">
+      <img src="img/obuoliupyragas.jpg" alt="Obuolių pyragas"/>
       <h3>Obuolių pyragas</h3>
     </a>
     <a href="receptu_html/tiramisu.html" class="card" data-category="desertai">
-      <img src="images/tiramisu.jpg" alt="Tiramisu">
+      <img src="img/tiramisu.jpg" alt="Tiramisu"/>
       <h3>Tiramisu</h3>
     </a>
     <a href="receptu_html/vasaros.html" class="card" data-category="desertai">
-      <img src="images/vasaros.jpg" alt="Vasaros tortas">
+      <img src="img/vasaros.jpg" alt="Vasaros tortas"/>
       <h3>Vasaros tortas</h3>
     </a>
     <a href="receptu_html/melyniu.html" class="card" data-category="desertai">
-      <img src="images/melyniu.jpg" alt="Mėlynių cheescake">
+      <img src="img/melyniu.jpg" alt="Mėlynių cheescake"/>
       <h3>Mėlynių cheescake</h3>
     </a>
     <a href="receptu_html/silauogiu.html" class="card" data-category="desertai">
-      <img src="images/silauogiu.jpg" alt="Silauogiu tortas">
+      <img src="img/silauogiu.jpg" alt="Šilauogių tortas"/>
       <h3>Šilauogių tortas</h3>
     </a>
     <a href="receptu_html/oreo.html" class="card" data-category="desertai">
-      <img src="images/oreo.jpg" alt="Oreo tortas">
+      <img src="img/oreo.jpg" alt="Oreo tortas"/>
       <h3>Oreo tortas</h3>
     </a>
     <a href="receptu_html/ferrero.html" class="card" data-category="desertai">
-      <img src="images/ferrero.jpg" alt="Ferrero Rocher tortas">
+      <img src="img/ferrero.jpg" alt="Ferrero Rocher tortas"/>
       <h3>Ferrero Rocher tortas</h3>
-    </a>
-    <!-- pgr patiekalai -->
-    <a class="card" data-category="pagrindiniai">
-      <h3>laikinai tuščia</h3>
-    </a>
-    <!-- uzkandziai -->
-    <a class="card" data-category="uzkandziai">
-      <h3>laikinai tuščia</h3>
     </a>
   </div>
 
-  <!-- apie puslapi -->
-  <section id="apie">
-    <h2>Apie šį puslapį</h2>
-    <p>Čia galite rasti įvairius (desertų) receptus. Puslapis skirtas mokymosi tikslams.</p>
+  <!-- istorija puslapį -->
+  <section id="istorija">
+    <h2>Istorija</h2>
+    <div class="istorija-content">
+      <img src="img/istorija.jpg" alt="Istorija apie receptus" class="istorija-img">
+      <div class="istorija-text">
+        <p>Čia galite rasti įvairius (desertų) receptus. Puslapis skirtas mokymosi tikslams.</p>
+        <p>sveiki, mano vardas dzesika ir cia rasit geriausius pasauly receptuss!!! VISKAS prasidejo 
+          nuooo viskoooooooooooooo viskas kaciu maistas?? cnkanfaewfae
+          feswbfffffffffffffffffffffffffffffffffffffffffffffffaaa 
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+          slapciausiiipasauliooooooooooerceptaaaiiiiiiiiiiiiiiimiaudeshdf
+          MEEEEEEEEEEEEEEEEEEEBUUUUUUUUUUUUUUUUUUUUUUUUU
+          DEDDDDDDDDDDDDBHbyyvrevcjscjhsefhbbafdawwbfakjewf
+          faseghvfhaevfjaehhhhheabfaejevfjaevfhaevfhaevfaefhe
+          febahfvjahvfjasvfejsavfjevfhvaefhvajehvfevajfeae
+          befsfehsbfshebfhesbfhsgfsrgsrfreeeeee.</p>
+        <p>SSSSSSSSSSSSSSSSSSSSSSSSSKKKKKKKKKKKKKKKKKKKKKKKAAAAAAAAAAAAAAAAAAAANNNNNNNNNNNNNNN
+          AAAAAAAAAAAAAAAAAAUUUUUUUUUUUUUUUUUUSSSSSSSSSSSSSSSSSS :))))))))))))))))))))))))))
+          Afbjsaefbfjebfjhbsefbajsefbwhsbjfbhewsjfse
+          fsjfkbsejfkbbbbbbbbbbbbbbbbbbbbbbb
+          fsenfksengfjksgsjebgjejejjjjjjejejjejeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </p>
+        </p>aaaaaaaaaaaaaaaaaaaaaaaaaaaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbbbbbbbbbbbbbbb
+          bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+        ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</p>
+      </div>
+    </div>
   </section>
 
-<!-- javascript filtravimas is menu -->
-  <script>
-    const buttons = document.querySelectorAll('.category-menu .category');
-    const cards = document.querySelectorAll('.cards-container .card');
-
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        // nuima active nuo kitu mygtuku
-        buttons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        const category = button.getAttribute('data-category');
-
-        // rodo tik pasirinkta kategorija
-        cards.forEach(card => {
-          if(card.getAttribute('data-category') === category) {
-            card.style.display = 'inline-block';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // desertai kaip default
-    cards.forEach(card => {
-      if(card.getAttribute('data-category') !== 'desertai') {
-        card.style.display = 'none';
-      }
-    });
-  </script>
+  <!-- kontaktai -->
+  <section id="kontaktai">
+    <h2>Kontaktai</h2>
+    <p>El. paštas: <a href="mailto:kontaktai@mano-receptai.lt">kontaktai@mano-receptai.lt</a></p>
+  </section>
 
 </body>
 </html>

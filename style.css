@@ -1,90 +1,140 @@
-html {
-  scroll-behavior: smooth;
-}
+/* ===================== BENDRAS ===================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+html { scroll-behavior: smooth; }
 
-/* Bendras puslapio stilius */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   text-align: center;
   background-color: #f7ede0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* 100% lango aukščio */
+  min-height: 100vh;
   margin: 0;
 }
 
-/* Main turinys receptų puslapyje */
-body.receptas main {
-  flex: 1;
-  padding: 20px;
-  text-align: left; /* recepto tekstas kairėje */
-}
+/* kad šokant į sekcijas sticky meniu neuždengtų viršaus */
+#pagrindinis, #istorija, #kontaktai, #apie { scroll-margin-top: 64px; }
 
-/* Antraštės stilius */
-h1#pagrindinis {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-body.receptas main h1 {
-  text-align: center; /* recepto pavadinimas centrinis */
-  color: #333;
-  
-}
-
-/* Navigacijos meniu */
+/* ===================== MENIU (sticky) ===================== */
 nav {
-  margin-bottom: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #e3dbd1;         /* pakeisk į #fff jei nori visiškai baltos */
+  margin-bottom: 0;
 }
 
 nav ul {
   list-style: none;
-  padding: 0;
+  padding: 10px 0;
+  margin: 0;
   display: flex;
   justify-content: center;
   gap: 20px;
+  background: transparent;
+  flex-wrap: wrap; /* leidžia elementams "lūžti" į naują eilutę */
 }
 
-nav a {
-  text-decoration: none;
+/* Responsive meniu: vidutiniuose ekranuose vertikaliai */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* vertikalus išdėstymas */
+    align-items: center; /* centruoja elementus */
+    gap: 15px; /* tarpas tarp elementų */
+    padding: 20px 0; /* daugiau padding */
+  }
+  
+  nav li {
+    display: block; /* užtikrina kad li elementai užima pilną plotį */
+    width: 100%;
+    text-align: center;
+  }
+  
+  nav a {
+    display: block; /* kad nuorodos užimtų pilną plotį */
+    padding: 5px 0;
+  }
+}
+
+/* 1) numatytas – ne toks ryškus */
+nav a,
+nav a:visited {
   color: #333;
-  font-weight: bold;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-/* Dinaminis kategorijų meniu */
-.category-menu {
-  margin-bottom: 30px;
+/* 2) užvedus – labiau paryškėja */
+nav a:hover { 
+  font-weight: 800; 
 }
 
-.category-menu .category {
-  padding: 8px 16px;
-  margin: 0 5px;
-  border: none;
-  border-radius: 5px;
-  background-color: #fffdfadb;
-  cursor: pointer;
-  transition: background-color 0.2s;
+/* 4) kai aktyvi sekcija per URL #hash – paryškinta atitinkama nuoroda */
+body:has(#pagrindinis:target) nav a[href$="#pagrindinis"],
+body:has(#istorija:target)   nav a[href$="#istorija"],
+body:has(#kontaktai:target)  nav a[href$="#kontaktai"] {
+  font-weight: 700;
 }
 
-.category-menu .category:hover {
-  background-color: #f2f1f1;
+/* ===================== ANTRAŠTĖ VIRŠ KORTELIŲ ===================== */
+.page-header {
+  padding: 28px 0 24px;        
+}
+.page-header h1{
+  margin: 0;
+  font-weight: 400;           
+  font-size: clamp(32px, 6vw, 64px);
+  letter-spacing: 0.02em;
+  color: #1f1f1f;
+}
+.page-header .subtitle{
+  padding-bottom: 32px;           
+  font-weight: 400;
+  font-size: clamp(10px, 1.6vw, 18px);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #6b6b6b;
 }
 
-.category-menu .category.active {
-  background-color: #e2ccab;
-  font-weight: bold;
-}
-
-/* Kortelių konteineris su Grid */
+/* ===================== PAGRINDINIO PUSLAPIO KORTELĖS ===================== */
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr); /* max 4 blokai vienoje eilutėje */
+  gap: 30px; 
   justify-items: center;
+  margin: 0 auto;
+  max-width: 1000px; /* sumažinau plotį, kad būtų didesni margins */
+  padding: 40px 60px 30px; /* padidinti šoniniai tarpai */
+  border-bottom: 1px solid #e0dcd7;
+  border-top: 1px solid #e0dcd7;
 }
 
-/* Atskiros kortelės stilius */
+/* Responsive grid */
+@media (max-width: 1200px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 kortelės eilutėje */
+    max-width: 800px;
+    padding: 40px 40px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 kortelės eilutėje */
+    max-width: 600px;
+    padding: 30px 20px 20px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-container {
+    grid-template-columns: 1fr; /* 1 kortelė eilutėje */
+    max-width: 300px;
+    padding: 20px 10px;
+    gap: 15px;
+  }
+}
 .card {
   display: inline-block;
   width: 200px;
@@ -95,51 +145,197 @@ nav a {
   transition: transform 0.2s;
   border-radius: 8px;
 }
-
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
-/* Nuotraukų dydžiai */
-
-/* foto pagrindiniame puslapyje */
+.card h3 {
+  font-size: 17px; 
+  margin: 10px 10px 10px;
+  font-weight: 200;            
+}
 body.home .card img {
   width: 200px;
   height: 150px;
-  object-fit: cover; /* prisitaiko ir nukerpama */
+  object-fit: cover;
 }
 
-/* foto recepto puslapyje (mažesnė, kairėje) */
-body.receptas .recepto-tekstas img {
-  width: 500px;      
-  height: auto;
-  max-width: 100%;  
-  float: left;        /* nuotrauka kairėje */
-  margin-left: 10px;
-  margin-right: 15px;
+/* ===================== ISTORIJA ===================== */
+#istorija {
+  padding: 40px 20px; 
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%; /* užtikrina kad neišeitų už ekrano ribų */
+  box-sizing: border-box; /* padding įskaičiuojamas į plotį */
+  overflow-wrap: break-word; /* lūžo ilgi žodžiai */
+}
+
+#istorija h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  word-wrap: break-word; /* antraštė irgi lūžta */
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: clamp(20px, 3.5vw, 36px); /* DAR MAŽESNIS */
+  letter-spacing: 0.02em;
+  color: #1f1f1f;
+}
+
+.istorija-content {
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.istorija-img {
+  float: left; /* nuotrauka kairėje, tekstas aplink */
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+  max-width: 100%;
+  margin: 0 20px 20px 0; /* tarpai: dešinėje ir apačioje */
+}
+
+.istorija-text {
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  /* pašalinam flex ir width apribojimus, kad tekstas eitų aplink */
+}
+
+/* Responsive: kai ekranas mažas, nuotrauka virš teksto */
+@media (max-width: 768px) {
+  #istorija {
+    padding: 30px 15px;
+  }
+  
+  .istorija-img {
+    float: none; /* panaikina float */
+    display: block;
+    margin: 0 auto 20px; /* centruoja ir prideda tarpą apačioje */
+    width: 300px;
+    height: 170px;
+  }
+  
+  .istorija-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #istorija {
+    padding: 20px 10px;
+  }
+  
+  #istorija h2 {
+    font-size: 1.5em;
+  }
+  
+  .istorija-content {
+    padding: 0;
+  }
+  
+  .istorija-img {
+    width: 250px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 320px) {
+  .istorija-img {
+    width: 200px;
+    height: 115px;
+  }
+}
+
+.istorija-text h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.istorija-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* ===================== KONTAKTŲ SEKCIJA ===================== */
+/* ===================== KONTAKTŲ SEKCIJA ===================== */
+#kontaktai {
+  background-color: #e3dbd1; /* ta pati spalva kaip meniu */
+  padding: 5px 10px; /* dar plonesnė - tik 5px viršuje ir apačioje */
+  margin-top: 80px; /* daugiau vietos tarp istorijos ir kontaktų */
+}
+
+#kontaktai h2 {
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 24px; /* fiksuotas dydis - niekada nemažės */
+  letter-spacing: 0.02em;
+  color: #333;
+  text-align: center;
   margin-bottom: 10px;
 }
 
-/* Kortelių antraštės */
-.card h3 {
-  margin: 10px 0;
+/* ===================== RECEPTŲ VIDINIS PUSLAPIS ===================== */
+body.receptas main { 
+  flex: 1; 
+  padding: 12px 20px 20px; 
+  text-align: left; 
 }
-
-/* Apie skyrių stilius */
-section#apie, footer#apie {
-  padding: 1px;
+body.receptas main h1{
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-size: clamp(28px, 5.5vw, 56px);
+  color: #1f1f1f;
   text-align: center;
-  margin-top: auto; /* footer visada apačioje */
+  margin: 4px 0 16px;        
 }
 
-/* Recepto blokas (tekstą šalia nuotraukos) */
-.recepto-tekstas {
+/* „Atgal“ juostelė – sticky, be fono */
+nav.back-nav{
+  position: sticky;
+  top: 48px;         
+  z-index: 900;
+  background: transparent;
+  border: 0;
+}
+
+/* kad nepaveldėtų bendro nav ul išlygiavimo/fono */
+nav.back-nav ul{
+  background: transparent;
+  padding: 6px 16px;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;  /* kairėje :D */
+  gap: 0;
+}
+
+/* pati nuoroda – be fono, kaip tekstas */
+nav.back-nav .back-link{
+  background: transparent;
+  padding: 0;
+  border: 0;
+  color: #333;
+  text-decoration: none;
+  font-weight: 700;
+}
+nav.back-nav .back-link:hover{ text-decoration: underline; }
+
+body.receptas .foto-ingredientu-blokas img {
+  width: 500px;
+  height: auto;
+  max-width: 100%;
+  float: left;
+  margin-left: 20px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+}
+.foto-ingredientu-blokas {
   display: flex;
   align-items: flex-start;
-  gap: 15px; /* tarpas tarp nuotraukos ir teksto */
+  gap: 15px;
+  margin-bottom: 20px;
 }
+.recepto-tekstas div { text-align: left; margin-left: 20%; }
 
-.recepto-tekstas div {
-  text-align: left;
-}
