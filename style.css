@@ -34,9 +34,8 @@ nav ul {
   background: transparent;
   flex-wrap: wrap; /* leidžia elementams "lūžti" į naują eilutę */
 }
-
 /* Responsive meniu: vidutiniuose ekranuose vertikaliai */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   nav ul {
     flex-direction: column; /* vertikalus išdėstymas */
     align-items: center; /* centruoja elementus */
@@ -258,7 +257,6 @@ body.home .card img {
   line-height: 1.6;
 }
 
-/* ===================== KONTAKTŲ SEKCIJA ===================== */
 /* ===================== KONTAKTŲ SEKCIJA ===================== */
 #kontaktai {
   background-color: #e3dbd1; /* ta pati spalva kaip meniu */
