@@ -1,22 +1,13 @@
-/* ===================== RECEPTŲ PUSLAPIO STILIAI ===================== */
-/*
-  Elgsena:
-  - ≥992px: 3 stulpeliai (nuotrauka | ingredientai | eiga).
-  - 811–991px: 2 stulpeliai; eiga nusileidžia po nuotrauka (kairėje), ingredientai lieka dešinėje.
-  - 481–810px: 1 stulpelis; seka: nuotrauka → ingredientai → eiga.
-  - Nuotrauka nemažėja, kol telpa su minimaliais šoniniais tarpais; mažėja tik kai jų nebeįmanoma išlaikyti.
-*/
-
-/* --- Konfigūriniai kintamieji (gali pasireguliuoti) --- */
+/* RECEPTŲ PUSLAPIO STILIAI */
 :root {
-  --page-pad: 15px;            /* puslapio horizontalus padingas = „minimalūs margins“ */
-  --photo-initial-width: 500px;/* pradinis nuotraukos plotis (atitinka tavo ankstesnį max) */
+  --page-pad: 15px;            /* puslapio horizontalus padingas = minimalūs margins */
+  --photo-initial-width: 500px; /* pradinis nuotraukos plotis */
   --right-col-min: 360px;      /* minimalus dešinio stulpelio plotis, kai yra 2 stulpeliai */
   --grid-gap-col: 4%;          /* tarpas tarp stulpelių vidutiniuose ekranuose */
   --grid-gap-row: 20px;        /* tarpas tarp eilučių */
 }
 
-/* ------------- Bendrieji receptų puslapio stiliai ------------- */
+/* Bendrieji receptų stiliai */
 body.receptas main {
   flex: 1;
   padding: 20px;
@@ -29,12 +20,11 @@ body.receptas main h1 {
   margin-bottom: 25px;
 }
 
-/* Navigacija receptų puslapyje */
 body.receptas nav {
   margin: 0;
 }
 
-/* ------------- "Grįžti atgal" mygtuko stiliai ------------- */
+/* Grįžti atgal mygtukas */
 body.receptas nav.back-nav {
   margin: 0 !important;
   padding: 5px 0 !important;
@@ -70,7 +60,7 @@ body.receptas nav.back-nav .back-link {
   padding: 0 !important;
 }
 
-/* ------------- Recepto blokas konteineris ------------- */
+/* Recepto konteineris */
 .receptas-container {
   width: 100%;
   display: flex;
@@ -80,7 +70,7 @@ body.receptas nav.back-nav .back-link {
   box-sizing: border-box;
 }
 
-/* ------------- Nuotraukos blokas ------------- */
+/* Nuotraukos blokas */
 .nuotrauka-blokas {
   margin-bottom: 25px;
   position: relative;
@@ -88,7 +78,6 @@ body.receptas nav.back-nav .back-link {
   width: 100%;
 }
 
-/* Pradiniame (plačiame) variante: nuotrauka iki 500px */
 .nuotrauka-blokas img {
   width: 100%;
   max-width: var(--photo-initial-width);
@@ -96,10 +85,11 @@ body.receptas nav.back-nav .back-link {
   display: block;
   margin: 0 0 25px 0;
   box-sizing: border-box;
-  position: relative;
+  float: left;
+  margin-right: 20px;
 }
 
-/* ------------- Ingredientų blokas ------------- */
+/* Ingredientų blokas */
 .ingredientu-blokas {
   width: 100%;
   max-width: 500px;
@@ -109,19 +99,16 @@ body.receptas nav.back-nav .back-link {
 }
 
 .ingredientu-blokas h3 {
-  margin-left: 0;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
+  padding: 0;
 }
 
 .ingredientu-blokas ul {
   padding-left: 20px;
-  margin-left: 0;
-  margin-top: 0;
+  margin: 0;
 }
 
-/* ------------- Gaminimo eigos blokas ------------- */
+/* Gaminimo eigos blokas */
 .gaminimo-eiga {
   width: 100%;
   max-width: 500px;
@@ -131,19 +118,16 @@ body.receptas nav.back-nav .back-link {
 }
 
 .gaminimo-eiga h3 {
-  margin-left: 0;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
+  padding: 0;
 }
 
 .gaminimo-eiga ol {
   padding-left: 20px;
-  margin-left: 0;
-  margin-top: 0;
+  margin: 0;
 }
 
-/* ------------- Maži ekranai (≤480px) ------------- */
+/* Maži ekranai (≤480px) */
 @media (max-width: 480px) {
   body.receptas main { padding: 10px; }
 
@@ -153,17 +137,28 @@ body.receptas nav.back-nav .back-link {
     width: 100%;
     gap: var(--grid-gap-row);
   }
-
-  /* Vienas stulpelis; nuotrauka pradeda mažėti tik kai netelpa tarp dviejų page-pad */
-  .nuotrauka-blokas { order: 1; }
+  
+  .nuotrauka-blokas { 
+    order: 1; 
+  }
+  
   .nuotrauka-blokas img {
     width: min(var(--photo-initial-width), calc(100% - 2 * var(--page-pad)));
     max-width: 100%;
-    margin: 0 auto 20px auto; /* centruojam, kad šoniniai „margins“ būtų vienodi */
+    margin: 0 20px 20px 0;
+    display: block;
+    float: left;
   }
 
-  .ingredientu-blokas { order: 2; margin: 0 0 20px 0; }
-  .gaminimo-eiga     { order: 3; margin: 0 0 20px 0; }
+  .ingredientu-blokas { 
+    order: 2; 
+    margin: 0 0 20px 0; 
+  }
+  
+  .gaminimo-eiga { 
+    order: 3; 
+    margin: 0 0 20px 0; 
+  }
 
   body.receptas nav ul {
     width: 100%;
@@ -174,37 +169,67 @@ body.receptas nav.back-nav .back-link {
   body.receptas .back-nav { position: relative; }
 }
 
-/* ------------- Vidutiniai – du stulpeliai: 811–991px ------------- */
-/* Pirmas perėjimas: GAMINIMO EIGA nusileidžia po nuotrauka; ingredientai lieka šalia nuotraukos */
+/* Vidutiniai – du stulpeliai: 481–991px */
+
+@media (min-width: 481px) and (max-width: 810px) {
+  body.receptas main { padding: 12px; }
+
+  .receptas-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--grid-gap-row);
+  }
+  
+  .nuotrauka-blokas img {
+    width: min(var(--photo-initial-width), 100%);
+    max-width: 100%;
+    margin: 0 20px 20px 0;
+    float: left;
+  }
+}
+
+/* Vidutiniai – du stulpeliai: 811–991px */
 @media (min-width: 811px) and (max-width: 991px) {
   body.receptas main { padding: 15px; }
 
   .receptas-container {
     display: grid;
-    /* Kairė – fiksuota nuotrauka pradiniu pločiu; dešinė – tekstas (min plotis) */
     grid-template-columns: var(--photo-initial-width) minmax(var(--right-col-min), 1fr);
     grid-template-areas:
       "img ing"
-      "eiga ing";
+      "eiga eiga";
     column-gap: var(--grid-gap-col);
     row-gap: var(--grid-gap-row);
     align-items: start;
   }
 
-  /* NUOTRAUKA: „nemažėja“ šiame intervale – fiksuotas stulpelio plotis */
-  .nuotrauka-blokas { grid-area: img; width: var(--photo-initial-width); margin: 0; }
+  .nuotrauka-blokas { 
+    grid-area: img; 
+    width: var(--photo-initial-width); 
+    margin: 0; 
+  }
+  
   .nuotrauka-blokas img {
     width: 100%;
     height: auto;
     display: block;
-    margin: 0;
+    float: left;
+    margin: 0 20px 15px 0;
   }
 
-  .ingredientu-blokas { grid-area: ing; margin: 0; }
-  .gaminimo-eiga     { grid-area: eiga; margin: 0; }
+  .ingredientu-blokas { 
+    grid-area: ing; 
+    margin: 0; 
+  }
+  
+  .gaminimo-eiga { 
+    grid-area: eiga; 
+    margin: 0; 
+  }
 }
 
-/* ------------- Dideli ekranai (≥992px) ------------- */
+/* Dideli ekranai (≥992px) */
 @media (min-width: 992px) {
   body.receptas main { padding: 20px 30px; }
 
@@ -214,13 +239,25 @@ body.receptas nav.back-nav .back-link {
 
   .receptas-container {
     display: grid;
-    /* 3 stulpeliai: Nuotrauka | Ingredientai (siauresni) | Gaminimo eiga (platus) */
-    grid-template-columns: 40% 22% 1fr; /* koreguok: pvz. 36% 20% 1fr – „eiga“ bus dar arčiau centro */
+    grid-template-columns: 40% 22% 1fr;
+    grid-template-areas: "nuotrauka ingredientai gaminimas";
     column-gap: 32px;
     align-items: start;
   }
+  
+  .nuotrauka-blokas { 
+    grid-area: nuotrauka; 
+  }
+  
+  .ingredientu-blokas { 
+    grid-area: ingredientai; 
+  }
+  
+  .gaminimo-eiga { 
+    grid-area: gaminimas; 
+  }
 
-  /* nuimam ribojančius max-width ir marginus, kad nestumtų tarpo */
+
   .nuotrauka-blokas,
   .ingredientu-blokas,
   .gaminimo-eiga {
@@ -232,6 +269,7 @@ body.receptas nav.back-nav .back-link {
 
   .nuotrauka-blokas img {
     width: 100%;
-    margin: 0 0 15px 0;
+    margin: 0 20px 15px 0;
+    float: left;
   }
 }

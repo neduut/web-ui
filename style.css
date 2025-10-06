@@ -1,4 +1,3 @@
-/* ===================== BENDRAS ===================== */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
 html { scroll-behavior: smooth; }
 
@@ -12,15 +11,15 @@ body {
   margin: 0;
 }
 
-/* kad šokant į sekcijas sticky meniu neuždengtų viršaus */
+/* Anchor scroll offset */
 #pagrindinis, #istorija, #kontaktai, #apie { scroll-margin-top: 64px; }
 
-/* ===================== MENIU (sticky) ===================== */
+/* Meniu */
 nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #e3dbd1;         /* pakeisk į #fff jei nori visiškai baltos */
+  background: #e3dbd1;
   margin-bottom: 0;
 }
 
@@ -32,30 +31,31 @@ nav ul {
   justify-content: center;
   gap: 20px;
   background: transparent;
-  flex-wrap: wrap; /* leidžia elementams "lūžti" į naują eilutę */
+  flex-wrap: wrap;
 }
-/* Responsive meniu: vidutiniuose ekranuose vertikaliai */
-@media (max-width: 480px) {
+
+/* Responsive meniu */
+@media (max-width: 580px) {
   nav ul {
-    flex-direction: column; /* vertikalus išdėstymas */
-    align-items: center; /* centruoja elementus */
-    gap: 15px; /* tarpas tarp elementų */
-    padding: 20px 0; /* daugiau padding */
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
   }
   
   nav li {
-    display: block; /* užtikrina kad li elementai užima pilną plotį */
+    display: block;
     width: 100%;
     text-align: center;
   }
   
   nav a {
-    display: block; /* kad nuorodos užimtų pilną plotį */
+    display: block;
     padding: 5px 0;
   }
 }
 
-/* 1) numatytas – ne toks ryškus */
+/* Nuorodos stilius */
 nav a,
 nav a:visited {
   color: #333;
@@ -63,19 +63,19 @@ nav a:visited {
   font-weight: 500;
 }
 
-/* 2) užvedus – labiau paryškėja */
+/* Hover stilius */
 nav a:hover { 
   font-weight: 800; 
 }
 
-/* 4) kai aktyvi sekcija per URL #hash – paryškinta atitinkama nuoroda */
+/* Aktyvios nuorodos stilius */
 body:has(#pagrindinis:target) nav a[href$="#pagrindinis"],
 body:has(#istorija:target)   nav a[href$="#istorija"],
 body:has(#kontaktai:target)  nav a[href$="#kontaktai"] {
   font-weight: 700;
 }
 
-/* ===================== ANTRAŠTĖ VIRŠ KORTELIŲ ===================== */
+/*  ANTRAŠTĖ VIRŠ KORTELIŲ  */
 .page-header {
   padding: 28px 0 24px;        
 }
@@ -95,15 +95,15 @@ body:has(#kontaktai:target)  nav a[href$="#kontaktai"] {
   color: #6b6b6b;
 }
 
-/* ===================== PAGRINDINIO PUSLAPIO KORTELĖS ===================== */
+/*  PAGRINDINIO PUSLAPIO KORTELĖS  */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* max 4 blokai vienoje eilutėje */
   gap: 30px; 
   justify-items: center;
   margin: 0 auto;
-  max-width: 1000px; /* sumažinau plotį, kad būtų didesni margins */
-  padding: 40px 60px 30px; /* padidinti šoniniai tarpai */
+  max-width: 1000px; 
+  padding: 40px 60px 30px;
   border-bottom: 1px solid #e0dcd7;
   border-top: 1px solid #e0dcd7;
 }
@@ -159,23 +159,23 @@ body.home .card img {
   object-fit: cover;
 }
 
-/* ===================== ISTORIJA ===================== */
+/*  ISTORIJA  */
 #istorija {
   padding: 40px 20px; 
   max-width: 1000px;
   margin: 0 auto;
   width: 100%; /* užtikrina kad neišeitų už ekrano ribų */
-  box-sizing: border-box; /* padding įskaičiuojamas į plotį */
-  overflow-wrap: break-word; /* lūžo ilgi žodžiai */
+  box-sizing: border-box; 
+  overflow-wrap: break-word; /* trumpina ilgus zodzius */
 }
 
 #istorija h2 {
   text-align: center;
   margin-bottom: 30px;
-  word-wrap: break-word; /* antraštė irgi lūžta */
+  word-wrap: break-word; /* antraštė irgi luzta */
   font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-weight: 400;
-  font-size: clamp(20px, 3.5vw, 36px); /* DAR MAŽESNIS */
+  font-size: clamp(20px, 3.5vw, 36px);
   letter-spacing: 0.02em;
   color: #1f1f1f;
 }
@@ -199,7 +199,7 @@ body.home .card img {
   text-align: left;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  /* pašalinam flex ir width apribojimus, kad tekstas eitų aplink */
+  /* kad tekstas eitų aplink */
 }
 
 /* Responsive: kai ekranas mažas, nuotrauka virš teksto */
@@ -257,40 +257,36 @@ body.home .card img {
   line-height: 1.6;
 }
 
-/* ===================== KONTAKTŲ SEKCIJA ===================== */
 #kontaktai {
-  background-color: #e3dbd1; /* ta pati spalva kaip meniu */
-  padding: 5px 10px; /* dar plonesnė - tik 5px viršuje ir apačioje */
-  margin-top: 80px; /* daugiau vietos tarp istorijos ir kontaktų */
+  background-color: #e3dbd1;
+  padding: 5px 10px;
+  margin-top: 80px;
 }
 
 #kontaktai h2 {
-  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-weight: 500;
-  font-size: 24px; /* fiksuotas dydis - niekada nemažės */
+  font-size: 24px;
   letter-spacing: 0.02em;
   color: #333;
   text-align: center;
   margin-bottom: 10px;
 }
 
-/* ===================== RECEPTŲ VIDINIS PUSLAPIS ===================== */
+/* Receptų puslapis */
 body.receptas main { 
   flex: 1; 
   padding: 12px 20px 20px; 
   text-align: left; 
 }
 body.receptas main h1{
-  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-weight: 400;
-  letter-spacing: 0.02em;
   font-size: clamp(28px, 5.5vw, 56px);
   color: #1f1f1f;
   text-align: center;
   margin: 4px 0 16px;        
 }
 
-/* „Atgal“ juostelė – sticky, be fono */
+/* Atgal – sticky, be fono */
 nav.back-nav{
   position: sticky;
   top: 48px;         
@@ -305,7 +301,7 @@ nav.back-nav ul{
   padding: 6px 16px;
   margin: 0;
   display: flex;
-  justify-content: flex-start;  /* kairėje :D */
+  justify-content: flex-start;  /* kairėj */
   gap: 0;
 }
 
@@ -336,4 +332,5 @@ body.receptas .foto-ingredientu-blokas img {
   margin-bottom: 20px;
 }
 .recepto-tekstas div { text-align: left; margin-left: 20%; }
+
 
