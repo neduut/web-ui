@@ -145,6 +145,7 @@ body:has(#kontaktai:target)  nav a[href$="#kontaktai"] {
   transition: transform 0.2s;
   border-radius: 8px;
 }
+/* kai uzvedama pelyte - padideja kortele ir atsiranda seselis */
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
