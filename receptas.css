@@ -1,10 +1,10 @@
 /* RECEPTŲ PUSLAPIO STILIAI */
 :root {
-  --page-pad: 15px;            /* puslapio horizontalus padingas = minimalūs margins */
+  --page-pad: 15px; /* puslapio horizontalus padingas = minimalūs margins */
   --photo-initial-width: 500px; /* pradinis nuotraukos plotis */
-  --right-col-min: 360px;      /* minimalus dešinio stulpelio plotis, kai yra 2 stulpeliai */
-  --grid-gap-col: 4%;          /* tarpas tarp stulpelių vidutiniuose ekranuose */
-  --grid-gap-row: 20px;        /* tarpas tarp eilučių */
+  --right-col-min: 360px; /* minimalus dešinio stulpelio plotis, kai yra 2 stulpeliai */
+  --grid-gap-col: 4%; /* tarpas tarp stulpelių vidutiniuose ekranuose */
+  --grid-gap-row: 20px; /* tarpas tarp eilučių */
 }
 
 /* Bendrieji receptų stiliai */

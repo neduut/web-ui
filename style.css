@@ -56,6 +56,7 @@ nav ul {
 }
 
 /* Nuorodos stilius */
+/* default */
 nav a,
 nav a:visited {
   color: #333;
@@ -63,12 +64,12 @@ nav a:visited {
   font-weight: 500;
 }
 
-/* Hover stilius */
+/* kai uzvedama pelyte - ryskiausias tekstas*/
 nav a:hover { 
   font-weight: 800; 
 }
 
-/* Aktyvios nuorodos stilius */
+/* kai paspaudziama - maziau ryskus tekstas*/
 body:has(#pagrindinis:target) nav a[href$="#pagrindinis"],
 body:has(#istorija:target)   nav a[href$="#istorija"],
 body:has(#kontaktai:target)  nav a[href$="#kontaktai"] {
@@ -209,7 +210,7 @@ body.home .card img {
   }
   
   .istorija-img {
-    float: none; /* panaikina float */
+    float: none;
     display: block;
     margin: 0 auto 20px; /* centruoja ir prideda tarpą apačioje */
     width: 300px;
